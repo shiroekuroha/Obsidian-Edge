@@ -1,1 +1,3 @@
 # Obsidian-Edge
+
+dependencies:  GLEW
