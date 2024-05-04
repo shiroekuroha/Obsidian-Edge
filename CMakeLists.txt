@@ -3,6 +3,8 @@ project(obsidian-edge VERSION 0.1.0 LANGUAGES C CXX)
 
 set(CMAKE_CXX_STANDARD 17)
 
+set(CMAKE_POSITION_INDEPENDENT_CODE ON)
+
 set(CMAKE_CONFIGURATION_TYPES "Debug;Release")
 
 # * Switch build type

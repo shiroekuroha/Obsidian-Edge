@@ -6,7 +6,6 @@ add_executable(sandbox ${SOURCE_FILES})
 
 target_link_libraries(sandbox obsidian-edge)
 
-
 target_include_directories(sandbox PRIVATE
-	${CMAKE_SOURCE_DIR}/source/ObsidianEdge/include
+	${CMAKE_SOURCE_DIR}/source/ObsidianEdge/PUBLIC
 )

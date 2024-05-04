@@ -1,8 +1,22 @@
 #include <iostream>
 
-#include "Engine/ObsidianEdge.h"
+#include "ObsidianEdge.h"
 
-int main()
+class Sandbox : public ObsidianEdge::Application
 {
-	return 0;
+public:
+	Sandbox()
+	{
+	}
+
+	~Sandbox()
+	{
+	}
+
+private:
+};
+
+ObsidianEdge::Application *ObsidianEdge::CreateApplication()
+{
+	return new Sandbox;
 }

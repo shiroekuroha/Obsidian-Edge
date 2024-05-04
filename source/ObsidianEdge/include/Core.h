@@ -1,15 +1,15 @@
 #ifndef OE_CORE_H
 #define OE_CORE_H
 
-#ifdef _WIN32 || _WIN64
-	#ifdef LIB_EXPORT
+#ifdef _WIN64
+	#ifdef OE_LIB_EXPORT
 		#define OE_API __declspec(dllexport)
 	#else
 		#define OE_API __declspec(dllimport)
 	#endif
 #elif unix
 	#if __linux__
-		#ifdef LIB_EXPORT
+		#ifdef OE_LIB_EXPORT
 			#define OE_API __attribute__((visibility("default")))
 		#else
 			#define OE_API
