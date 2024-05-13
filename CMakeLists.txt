@@ -5,7 +5,7 @@ set(CMAKE_CXX_STANDARD 17)
 
 set(CMAKE_POSITION_INDEPENDENT_CODE ON)
 
-set(CMAKE_CONFIGURATION_TYPES "Debug;Release")
+set(CMAKE_CONFIGURATION_TYPES "Debug;Release;Distribute")
 
 # * Switch build type
 # set(CMAKE_BUILD_TYPE Debug)
@@ -25,6 +25,7 @@ elseif(UNIX)
     # Unix-like platform (Linux, BSD, etc.) configuration
     message("Configuring for Unix-like platform...")
 endif()
+
 
 add_subdirectory(source/vendor/glfw)
 add_subdirectory(source/vendor/spdlog)

@@ -1,7 +1,7 @@
 #ifndef OE_APPLICATION_H
 #define OE_APPLICATION_H
 
-#include "Logger/Logger.h"
+#include "Logger.h"
 
 namespace ObsidianEdge
 {

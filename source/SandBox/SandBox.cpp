@@ -1,5 +1,3 @@
-#include <iostream>
-
 #include "ObsidianEdge.h"
 
 class Sandbox : public ObsidianEdge::Application

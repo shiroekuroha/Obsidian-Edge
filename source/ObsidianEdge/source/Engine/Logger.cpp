@@ -1,4 +1,4 @@
-#include "Logger/Logger.h"
+#include "Engine/Logger.h"
 
 namespace ObsidianEdge
 {
@@ -15,7 +15,7 @@ namespace ObsidianEdge
 
 	void Logger::Init()
 	{
-		spdlog::set_pattern("%^ [%x - %X] [%-7l] %n : %v %$");
+		spdlog::set_pattern("%^ [%x - %X] [%=9l] %n : %v %$");
 
 		s_CoreLogger = spdlog::stdout_color_mt("Engine");
 		s_CoreLogger->set_level(spdlog::level::trace);

@@ -8,6 +8,7 @@ int main(int argc, char **argv)
 	ObsidianEdge::Logger::Init();
 
 	auto app = ObsidianEdge::CreateApplication();
+	long con = 0;
 	// app->Run();
 	delete app;
 }

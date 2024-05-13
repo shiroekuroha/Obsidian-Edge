@@ -4,8 +4,10 @@
 // FOR APPLICATION
 
 #include "Core.h"
+
 #include "Engine/Application.h"
-#include "Logger/Logger.h"
+#include "Engine/Logger.h"
+#include "Engine/Events/Event.h"
 
 #include "EntryPoint.h"
 

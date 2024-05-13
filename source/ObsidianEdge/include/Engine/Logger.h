@@ -27,7 +27,7 @@ namespace ObsidianEdge
 	};
 }
 
-#ifdef DEBUG
+#ifdef OE_DEBUG
 
 #define OE_CORE_TRACE(...) ::ObsidianEdge::Logger::GetCoreLogger()->trace(__VA_ARGS__);
 #define OE_CORE_INFO(...) ::ObsidianEdge::Logger::GetCoreLogger()->info(__VA_ARGS__);
