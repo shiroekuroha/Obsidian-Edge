@@ -33,6 +33,7 @@
 
 # Binary
 build/
+.cache/
 
 # IDE
 .vscode/
