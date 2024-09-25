@@ -1,3 +1,5 @@
+#include "Engine/Tests/DataStructure.h"
+
 #include "Engine/Application.h"
 
 namespace ObsidianEdge
@@ -12,7 +14,5 @@ namespace ObsidianEdge
 
 	void Application::Run()
 	{
-		while (true)
-			;
 	}
 }

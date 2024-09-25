@@ -34,21 +34,14 @@ namespace ObsidianEdge
 	enum EventCategory
 	{
 		None = 0,
+
 		EventCategoryApplication = 0b1,
-		EventCategoryInput       = 0b10,
-		EventCategoryKeyboard    = 0b100,
-		EventCategoryMouse       = 0b1000,
+		EventCategoryInput = 0b10,
+		EventCategoryKeyboard = 0b100,
+		EventCategoryMouse = 0b1000,
 		EventCategoryMouseButton = 0b10000,
 		EventCategoryMouseMotion = 0b100000
 	};
-
-#define EVENT_CLASS_TYPE(type)                                                  \
-	static EventType GetStaticType() { return EventType::type; }                \
-	virtual EventType GetEventType() const  { return GetStaticType(); } \
-	virtual const char *GetName() const { return #type; }
-
-#define EVENT_CLASS_CATEGORY(category) \
-	virtual int GetCategoryFlags() const  { return category; }
 
 	class Event
 	{
@@ -77,12 +70,11 @@ namespace ObsidianEdge
 			: m_Event(event) {}
 
 		template <typename T, typename F>
-		bool Dispatch(const F &func)
+		bool Dispatch(F *func)
 		{
 			if (m_Event.GetEventType() == T::GetStaticType())
 			{
-				m_Event.m_Handled = func(static_cast<T &>(m_Event));
-
+				m_Event.m_Handled = func(m_Event);
 				return true;
 			}
 
@@ -93,6 +85,13 @@ namespace ObsidianEdge
 		Event &m_Event;
 	};
 
+#define EVENT_CLASS_TYPE(type)                                         \
+	static EventType GetStaticType() { return EventType::type; }       \
+	virtual EventType GetEventType() const { return GetStaticType(); } \
+	virtual const char *GetName() const { return #type; }
+
+#define EVENT_CLASS_CATEGORY(category) \
+	virtual int GetCategoryFlags() const { return category; }
 }
 
 #endif

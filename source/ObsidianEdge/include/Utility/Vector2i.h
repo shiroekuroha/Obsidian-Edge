@@ -28,6 +28,8 @@ public:
 	Vector2i operator-(const Vector2i &) const;
 	Vector2i &operator-=(const Vector2i &);
 
+	operator std::string() const;
+
 	template <typename T>
 	Vector2i operator*(T other) const
 	{

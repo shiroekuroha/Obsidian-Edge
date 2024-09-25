@@ -10,7 +10,7 @@ class Vector2
 {
 public:
 	Vector2();
-	Vector2(float x = 0, float y = 0);
+	Vector2(double x, double y);
 
 	Vector2(const Vector2 &);
 	Vector2(Vector2 &&) noexcept = delete;
@@ -27,6 +27,8 @@ public:
 
 	Vector2 operator-(const Vector2 &) const;
 	Vector2 &operator-=(const Vector2 &);
+
+	operator std::string() const;
 
 	template <typename T>
 	Vector2 operator*(T other) const
@@ -59,8 +61,8 @@ public:
 		return *this;
 	}
 
-	float x = 0;
-	float y = 0;
+	double x = 0;
+	double y = 0;
 };
 
 #endif

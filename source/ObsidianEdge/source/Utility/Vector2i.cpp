@@ -52,3 +52,10 @@ Vector2i &Vector2i::operator-=(const Vector2i &other)
 
 	return *this;
 }
+
+Vector2i::operator std::string() const
+{
+	std::string str = "X: " + std::to_string(x) + ", Y: " + std::to_string(y);
+
+	return str;
+}

@@ -12,6 +12,8 @@
 #include <string_view>
 
 #include <vector>
+
+#include <string.h>
 #include <math.h>
 
 #endif

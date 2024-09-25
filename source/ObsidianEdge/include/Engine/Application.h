@@ -17,7 +17,6 @@ namespace ObsidianEdge
 	};
 
 	Application *CreateApplication();
-
 }
 
 #endif

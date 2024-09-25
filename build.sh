@@ -1,4 +1,7 @@
 #! /bin/bash
 
+rm -rf build
 mkdir build
-cmake --build ./build --config Debug --target all --
+cd build
+cmake .. && cmake --build . --config Debug --target all --
+cd ..
