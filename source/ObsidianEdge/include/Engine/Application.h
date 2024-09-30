@@ -11,7 +11,7 @@ namespace ObsidianEdge
 		Application();
 		virtual ~Application();
 
-		void Run();
+		virtual void Run();
 
 	private:
 	};

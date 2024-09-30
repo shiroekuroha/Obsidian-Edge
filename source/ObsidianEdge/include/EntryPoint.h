@@ -5,12 +5,11 @@ extern ObsidianEdge::Application *ObsidianEdge::CreateApplication();
 
 int main(int argc, char **argv)
 {
-	ObsidianEdge::Logger::Init();
+    ObsidianEdge::Logger::Init();
 
-	auto app = ObsidianEdge::CreateApplication();
-	long con = 0;
-	// app->Run();
-	delete app;
+    auto app = ObsidianEdge::CreateApplication();
+    app->Run();
+    delete app;
 }
 
 #endif
