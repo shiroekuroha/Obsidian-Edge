@@ -11,12 +11,12 @@ namespace ObsidianEdge
 		Application();
 		virtual ~Application();
 
-		virtual void Run();
+		virtual void run();
 
 	private:
 	};
 
-	Application *CreateApplication();
+	Application *createApplication();
 }
 
 #endif

@@ -7,12 +7,12 @@ Obsidian Edge is a student project focused on exploring Graphical Application Pr
 Debian/Ubuntu dependencies: 
 
 ```
-sudo apt install git make cmake build-essential libwayland-dev pkg-config ninja libxkbcommon-dev libx11-dev libxrandr-dev libxinerama-dev libxcursor-dev libxi-dev gobjc gobjc++ libglew-dev
+sudo apt install git make cmake build-essential libwayland-dev pkg-config ninja doxygen libxkbcommon-dev libx11-dev libxrandr-dev libxinerama-dev libxcursor-dev libxi-dev gobjc gobjc++ libglew-dev
 ```
 
 Arch:
 ```
-sudo pacman -S base-devel git make cmake wayland pkgconf ninja libxkbcommon libx11 libxrandr libxinerama libxcursor libxi gcc-objc glew
+sudo pacman -S base-devel git make cmake wayland pkgconf ninja doxygen libxkbcommon libx11 libxrandr libxinerama libxcursor libxi gcc-objc glew
 ```
 
 # Cloning Project:

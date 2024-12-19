@@ -3,8 +3,6 @@ project(obsidian-edge VERSION 0.1.0 LANGUAGES C CXX OBJC OBJCXX)
 set(SOURCE_FILES
     ${PROJECT_SOURCE_DIR}/source/Engine/Application.cpp
     ${PROJECT_SOURCE_DIR}/source/Engine/Logger.cpp
-    ${PROJECT_SOURCE_DIR}/source/Utility/Vector2.cpp
-    ${PROJECT_SOURCE_DIR}/source/Utility/Vector2i.cpp
 )
 
 add_library(obsidian-edge SHARED ${SOURCE_FILES})

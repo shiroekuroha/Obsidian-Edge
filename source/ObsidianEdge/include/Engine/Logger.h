@@ -16,30 +16,30 @@ namespace ObsidianEdge
 		Logger();
 		~Logger();
 
-		static void Init();
+		static void init();
 
-		static std::shared_ptr<spdlog::logger> &GetCoreLogger() { return s_CoreLogger; };
-		static std::shared_ptr<spdlog::logger> &GetClientLogger() { return s_ClientLogger; };
+		static std::shared_ptr<spdlog::logger> &getCoreLogger() { return s_coreLogger; };
+		static std::shared_ptr<spdlog::logger> &getClientLogger() { return s_clientLogger; };
 
 	private:
-		static std::shared_ptr<spdlog::logger> s_CoreLogger;
-		static std::shared_ptr<spdlog::logger> s_ClientLogger;
+		static std::shared_ptr<spdlog::logger> s_coreLogger;
+		static std::shared_ptr<spdlog::logger> s_clientLogger;
 	};
 }
 
 #ifdef OE_DEBUG
 
-#define OE_CORE_TRACE(...) ::ObsidianEdge::Logger::GetCoreLogger()->trace(__VA_ARGS__);
-#define OE_CORE_INFO(...) ::ObsidianEdge::Logger::GetCoreLogger()->info(__VA_ARGS__);
-#define OE_CORE_WARN(...) ::ObsidianEdge::Logger::GetCoreLogger()->warn(__VA_ARGS__);
-#define OE_CORE_ERROR(...) ::ObsidianEdge::Logger::GetCoreLogger()->error(__VA_ARGS__);
-#define OE_CORE_FATAL(...) ::ObsidianEdge::Logger::GetCoreLogger()->fatal(__VA_ARGS__);
+#define OE_CORE_TRACE(...)  ::ObsidianEdge::Logger::getCoreLogger()->trace(__VA_ARGS__);
+#define OE_CORE_INFO(...)   ::ObsidianEdge::Logger::getCoreLogger()->info(__VA_ARGS__);
+#define OE_CORE_WARN(...)   ::ObsidianEdge::Logger::getCoreLogger()->warn(__VA_ARGS__);
+#define OE_CORE_ERROR(...)  ::ObsidianEdge::Logger::getCoreLogger()->error(__VA_ARGS__);
+#define OE_CORE_FATAL(...)  ::ObsidianEdge::Logger::getCoreLogger()->fatal(__VA_ARGS__);
 
-#define OE_TRACE(...) ::ObsidianEdge::Logger::GetClientLogger()->trace(__VA_ARGS__);
-#define OE_INFO(...) ::ObsidianEdge::Logger::GetClientLogger()->info(__VA_ARGS__);
-#define OE_WARN(...) ::ObsidianEdge::Logger::GetClientLogger()->warn(__VA_ARGS__);
-#define OE_ERROR(...) ::ObsidianEdge::Logger::GetClientLogger()->error(__VA_ARGS__);
-#define OE_FATAL(...) ::ObsidianEdge::Logger::GetClientLogger()->fatal(__VA_ARGS__);
+#define OE_TRACE(...)       ::ObsidianEdge::Logger::getClientLogger()->trace(__VA_ARGS__);
+#define OE_INFO(...)        ::ObsidianEdge::Logger::getClientLogger()->info(__VA_ARGS__);
+#define OE_WARN(...)        ::ObsidianEdge::Logger::getClientLogger()->warn(__VA_ARGS__);
+#define OE_ERROR(...)       ::ObsidianEdge::Logger::getClientLogger()->error(__VA_ARGS__);
+#define OE_FATAL(...)       ::ObsidianEdge::Logger::getClientLogger()->fatal(__VA_ARGS__);
 
 #else
 

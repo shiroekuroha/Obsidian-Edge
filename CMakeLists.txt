@@ -1,4 +1,4 @@
-cmake_minimum_required(VERSION 3.5.0)
+cmake_minimum_required(VERSION 3.10.0)
 
 set(CMAKE_CXX_STANDARD 17)
 
@@ -39,3 +39,29 @@ add_subdirectory(source/vendor/glfw)
 add_subdirectory(source/vendor/spdlog)
 add_subdirectory(source/ObsidianEdge)
 add_subdirectory(source/SandBox)
+
+# Testing
+
+enable_testing()
+
+include(GoogleTest)
+
+include(FetchContent)
+FetchContent_Declare(
+    gtest
+    GIT_REPOSITORY https://github.com/google/googletest.git
+    GIT_TAG        main
+)
+
+FetchContent_MakeAvailable(gtest)
+
+add_executable(testObsidianEdge test/main_test.cpp)
+
+target_link_libraries(testObsidianEdge gtest gtest_main)
+target_link_libraries(testObsidianEdge obsidian-edge)
+
+target_include_directories(testObsidianEdge PUBLIC 
+    ${PROJECT_SOURCE_DIR}/source/ObsidianEdge/include
+)
+
+add_test(NAME testObsidianEdge COMMAND testObsidianEdge)
