@@ -4,3 +4,6 @@
 [submodule "source/vendor/spdlog"]
 	path = source/vendor/spdlog
 	url = https://github.com/gabime/spdlog.git
+[submodule "source/vendor/googletest"]
+	path = source/vendor/googletest
+	url = https://github.com/google/googletest.git
