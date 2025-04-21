@@ -1,6 +1,8 @@
 #ifndef OE_EVENT_H
 #define OE_EVENT_H
 
+#include "Engine/Core/PCH.h"
+
 namespace ObsidianEdge
 {
     enum class EventType
@@ -8,11 +10,11 @@ namespace ObsidianEdge
         None = 0,
 
         // Windows Events
-        WindowResize,
-        WindowClose,
-        WindowFocus,
+        WindowGainedFocus,
         WindowLostFocus,
         WindowMoved,
+        WindowResized,
+        WindowClosed,
 
         // App Events
         AppTick,
@@ -28,53 +30,56 @@ namespace ObsidianEdge
         MouseButtonPressed,
         MouseButtonReleased,
         MouseMoved,
-        MouseScrolled
+        MouseScrolled,
     };
 
     enum EventCategory
     {
         None = 0,
 
-        EventCategoryApplication = 0b1,
-        EventCategoryInput = 0b10,
-        EventCategoryKeyboard = 0b100,
-        EventCategoryMouse = 0b1000,
-        EventCategoryMouseButton = 0b10000,
-        EventCategoryMouseMotion = 0b100000
+        EventCategoryApplication    = 0b0000001,
+        EventCategoryInput          = 0b0000010,
+        EventCategoryKeyboard       = 0b0000100,
+        EventCategoryMouse          = 0b0001000,
+        EventCategoryMouseButton    = 0b0010000,
+        EventCategoryGamepad        = 0b0100000,
+        EventCategoryGamepadButton  = 0b1000000
     };
 
     class Event
     {
-        friend class EventDispatcher;
-
     public:
-        virtual EventType GetEventType() const = 0;
-        virtual int GetEventCategoryFlags() const = 0;
+        Event() = default;
+        virtual ~Event() = default;
 
-        virtual const char *GetEventName() const = 0;
-        virtual std::string ToString() const { return GetEventName(); }
+        virtual EventType getEventType() const = 0;
+        virtual int getEventCategoryFlags() const = 0;
+        virtual const char *getEventName() const = 0;
+        virtual std::string toString() const { return getEventName(); }
 
-        inline bool IsInCategory(EventCategory e)
+        bool isInCategory(EventCategory category)
         {
-            return GetEventCategoryFlags() & e;
+            return getEventCategoryFlags() & category;
         }
 
-    protected:
-        bool m_Handled = false;
+        bool handled = false;
     };
 
     class EventDispatcher
     {
     public:
         EventDispatcher(Event &event)
-            : m_Event(event) {}
+            : m_event(event)
+        {
+        }
 
         template <typename T, typename F>
-        bool Dispatch(F *func)
+        bool dispatch(const F &func)
         {
-            if (m_Event.GetEventType() == T::GetStaticType())
+            if (m_event.getEventType() == T::getStaticType())
             {
-                m_Event.m_Handled = func(m_Event);
+                m_event.handled |= func(static_cast<T &>(m_event));
+
                 return true;
             }
 
@@ -82,16 +87,16 @@ namespace ObsidianEdge
         }
 
     private:
-        Event &m_Event;
+        Event &m_event;
     };
 
 #define EVENT_CLASS_TYPE(type)                                         \
-    static EventType GetStaticType() { return EventType::type; }       \
-    virtual EventType GetEventType() const { return GetStaticType(); } \
-    virtual const char *GetName() const { return #type; }
+    static EventType getStaticType() { return EventType::type; }       \
+    virtual EventType getEventType() const { return getStaticType(); } \
+    virtual const char *getEventName() const { return #type; }
 
-#define EVENT_CLASS_CATEGORY(category) \
-    virtual int GetCategoryFlags() const { return category; }
+#define EVENT_CLASS_CATEGORY(category)                                 \
+    virtual int getEventCategoryFlags() const override { return category; }
 }
 
 #endif

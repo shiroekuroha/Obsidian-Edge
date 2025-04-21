@@ -3,10 +3,9 @@
 
 // FOR APPLICATION
 
-#include "Core.h"
-
-#include "Engine/Application.h"
-#include "Engine/Logger.h"
+#include "Engine/Core/Core.h"
+#include "Engine/Core/Application.h"
+#include "Engine/Core/Logger.h"
 #include "Engine/Events/Event.h"
 
 #include "EntryPoint.h"

@@ -1,0 +1,1 @@
+This is for additional QoL files that some editor may benefited from. (i.e. VS Code)

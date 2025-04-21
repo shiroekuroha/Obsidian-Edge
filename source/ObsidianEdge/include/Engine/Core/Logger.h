@@ -1,12 +1,12 @@
 #ifndef OE_LOGGER_H
 #define OE_LOGGER_H
 
-#include <memory>
+#include "PCH.h"
 
 #include "spdlog/spdlog.h"
 #include "spdlog/sinks/stdout_color_sinks.h"
 
-#include "Core.h"
+#include "Engine/Core/Core.h"
 
 namespace ObsidianEdge
 {
@@ -33,13 +33,13 @@ namespace ObsidianEdge
 #define OE_CORE_INFO(...)   ::ObsidianEdge::Logger::getCoreLogger()->info(__VA_ARGS__);
 #define OE_CORE_WARN(...)   ::ObsidianEdge::Logger::getCoreLogger()->warn(__VA_ARGS__);
 #define OE_CORE_ERROR(...)  ::ObsidianEdge::Logger::getCoreLogger()->error(__VA_ARGS__);
-#define OE_CORE_FATAL(...)  ::ObsidianEdge::Logger::getCoreLogger()->fatal(__VA_ARGS__);
+#define OE_CORE_FATAL(...)  ::ObsidianEdge::Logger::getCoreLogger()->critical(__VA_ARGS__);
 
 #define OE_TRACE(...)       ::ObsidianEdge::Logger::getClientLogger()->trace(__VA_ARGS__);
 #define OE_INFO(...)        ::ObsidianEdge::Logger::getClientLogger()->info(__VA_ARGS__);
 #define OE_WARN(...)        ::ObsidianEdge::Logger::getClientLogger()->warn(__VA_ARGS__);
 #define OE_ERROR(...)       ::ObsidianEdge::Logger::getClientLogger()->error(__VA_ARGS__);
-#define OE_FATAL(...)       ::ObsidianEdge::Logger::getClientLogger()->fatal(__VA_ARGS__);
+#define OE_FATAL(...)       ::ObsidianEdge::Logger::getClientLogger()->critical(__VA_ARGS__);
 
 #else
 

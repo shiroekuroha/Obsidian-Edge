@@ -1,4 +1,3 @@
 #! /bin/bash
 
-cd build && cmake --build . --config Debug --target all --
-cd ..
+cd build && cmake --build . --config Debug --target all -- && cd ..

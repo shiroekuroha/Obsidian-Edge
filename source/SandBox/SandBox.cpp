@@ -15,7 +15,8 @@ public:
 
     void run() override
     {
-        OE_WARN("Application Running...")
+        OE_INFO("Application Running...")
+        Application::run();
     }
 
 private:
